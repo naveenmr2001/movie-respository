@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Home from './components/Home';
+import data from './components/series-data';
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <>
+    <div className="main-container">
+            <header className="main-container-header">
+                <h1>List of Movies Top 5 Movies in Netflix </h1>
+            </header>
+            <section className="main-section">
+                <div className="card-body">
+                {data.map(each=>(
+                    <Home imgscr={each.ImgSrc} details={each.Details} name={each.Name} link={each.Link}/>
+                ))}
+                </div>
+            </section>
+        </div>
+        
+    
+    </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
